@@ -1,4 +1,4 @@
-package com.example.porsche_project.model;
+package com.example.porsche_project.mode;
 
 import org.hibernate.validator.constraints.Length;
 import java.io.Serializable;
