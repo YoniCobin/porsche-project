@@ -1,21 +1,13 @@
-package com.example.porsche_project.model;
+package com.example.porsche_project.dto;
 
+import com.example.porsche_project.model.Car;
 import org.hibernate.validator.constraints.Length;
-import java.io.Serializable;
-import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 
-@Entity
-@Table(name = "porsche_cars")
-public class Car implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class CarIn implements Serializable {
 
     @NotBlank
     @Length(min = 2, max = 40)
@@ -25,8 +17,8 @@ public class Car implements Serializable {
     @Length(min = 2, max = 40)
     private String trimLevel;
 
-    @Min(1948)
-    @Max(2026)
+    @Min(1950)
+    @Max(2030)
     private Integer year;
 
     @Min(1000)
@@ -61,14 +53,6 @@ public class Car implements Serializable {
 
     @Length(max = 1000)
     private String description;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getModel() {
         return model;
@@ -174,23 +158,39 @@ public class Car implements Serializable {
         this.description = description;
     }
 
-    public Car() {}
-    public Car(String model, String trimLevel, Integer year, Integer engineCc, Integer horsePower,
-               Integer seats, Double price, String color, String transmission, String fuelType,
-               Integer mileageKm, String imageUrl, String description) {
-        this.model = model;
-        this.trimLevel = trimLevel;
-        this.year = year;
-        this.engineCc = engineCc;
-        this.horsePower = horsePower;
-        this.seats = seats;
-        this.price = price;
-        this.color = color;
-        this.transmission = transmission;
-        this.fuelType = fuelType;
-        this.mileageKm = mileageKm;
-        this.imageUrl = imageUrl;
-        this.description = description;
+    public Car toCar(CarIn in) {
+        return new Car(
+                in.getModel(),
+                in.getTrimLevel(),
+                in.getYear(),
+                in.getEngineCc(),
+                in.getHorsePower(),
+                in.getSeats(),
+                in.getPrice(),
+                in.getColor(),
+                in.getTransmission(),
+                in.getFuelType(),
+                in.getMileageKm(),
+                in.getImageUrl(),
+                in.getDescription()
+        );
     }
 
+
+
+    public void updateCar(Car car) {
+        car.setModel(model);
+        car.setTrimLevel(trimLevel);
+        car.setYear(year);
+        car.setEngineCc(engineCc);
+        car.setHorsePower(horsePower);
+        car.setSeats(seats);
+        car.setPrice(price);
+        car.setColor(color);
+        car.setTransmission(transmission);
+        car.setFuelType(fuelType);
+        car.setMileageKm(mileageKm);
+        car.setImageUrl(imageUrl);
+        car.setDescription(description);
+    }
 }
