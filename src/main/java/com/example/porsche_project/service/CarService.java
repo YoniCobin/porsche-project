@@ -38,11 +38,26 @@ public class CarService {
     public Iterable<Car> findByYearBetween(Integer min, Integer max) {
         return repository.findByYearBetween(min, max);
     }
-    public Iterable<Car> findByEngineCc(Integer cc) {
-        return repository.findByEngineCc(cc);
+    public Iterable<Car> findByEngineCc(Integer engineCc) {
+        return repository.findByEngineCc(engineCc);
     }
-    public Iterable<Car> findByHorsePower(Integer hp) {
-        return repository.findByHorsePower(hp);
+    public Iterable<Car> findByEngineCcGreaterThan(Integer cc) {
+        return repository.findByEngineCcGreaterThan(cc);
+    }
+    public Iterable<Car> findByHorsePower(Integer horsePower) {
+        return repository.findByHorsePower(horsePower);
+    }
+    public Iterable<Car> findByHorsePowerGreaterThan(Integer hp) {
+        return repository.findByHorsePowerGreaterThan(hp);
+    }
+    public Iterable<Car> findBySeats(Integer seats) {
+        return repository.findBySeats(seats);
+    }
+    public Iterable<Car> findByPrice(Double price) {
+        return repository.findByPrice(price);
+    }
+    public Iterable<Car> findByPriceLessThan(Double price) {
+        return repository.findByPriceLessThan(price);
     }
     public Iterable<Car> findByPriceBetween(Double min, Double max) {
         return repository.findByPriceBetween(min, max);
@@ -55,5 +70,20 @@ public class CarService {
     }
     public Iterable<Car> findByFuelType(String fuelType) {
         return repository.findByFuelType(fuelType);
+    }
+    public Iterable<Car> findByMileageKmLessThan(Integer km) {
+        return repository.findByMileageKmLessThan(km);
+    }
+    public Iterable<Car> findByDescriptionContaining(String text) {
+        return repository.findByDescriptionContaining(text);
+    }
+    public Iterable<Car> findByModelAndYear(String model, Integer year) {
+        return repository.findByModelAndYear(model, year);
+    }
+    public Iterable<Car> findByModelAndTrimLevel(String model, String trimLevel) {
+        return repository.findByModelAndTrimLevel(model, trimLevel);
+    }
+    public Iterable<Car> findByPriceLessThanAndHorsePowerGreaterThan(Double price, Integer hp) {
+        return repository.findByPriceLessThanAndHorsePowerGreaterThan(price, hp);
     }
 }
