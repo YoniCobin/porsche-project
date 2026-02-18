@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class CarService {
+public class CarServic {
 
     @Autowired
     CarRepository repository;
