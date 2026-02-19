@@ -59,8 +59,6 @@ public class CarController {
         return new ResponseEntity<>(carService.findByTrimLevel(trim), HttpStatus.OK);
     }
 
-    // -------- year --------
-
     @GetMapping("/by-year/{year}")
     public ResponseEntity<?> byYear(@PathVariable Integer year) {
         return new ResponseEntity<>(carService.findByYear(year), HttpStatus.OK);
@@ -72,8 +70,6 @@ public class CarController {
         return new ResponseEntity<>(carService.findByYearBetween(min, max), HttpStatus.OK);
     }
 
-    // -------- engineCc --------
-
     @GetMapping("/by-engine/{cc}")
     public ResponseEntity<?> byEngine(@PathVariable Integer cc) {
         return new ResponseEntity<>(carService.findByEngineCc(cc), HttpStatus.OK);
@@ -83,8 +79,6 @@ public class CarController {
     public ResponseEntity<?> byEngineGt(@PathVariable Integer cc) {
         return new ResponseEntity<>(carService.findByEngineCcGreaterThan(cc), HttpStatus.OK);
     }
-
-    // -------- horsePower --------
 
     @GetMapping("/by-hp/{hp}")
     public ResponseEntity<?> byHp(@PathVariable Integer hp) {
@@ -96,14 +90,10 @@ public class CarController {
         return new ResponseEntity<>(carService.findByHorsePowerGreaterThan(hp), HttpStatus.OK);
     }
 
-    // -------- seats --------
-
     @GetMapping("/by-seats/{seats}")
     public ResponseEntity<?> bySeats(@PathVariable Integer seats) {
         return new ResponseEntity<>(carService.findBySeats(seats), HttpStatus.OK);
     }
-
-    // -------- price --------
 
     @GetMapping("/by-price/{price}")
     public ResponseEntity<?> byPrice(@PathVariable Double price) {
@@ -121,8 +111,6 @@ public class CarController {
         return new ResponseEntity<>(carService.findByPriceBetween(min, max), HttpStatus.OK);
     }
 
-    // -------- color / transmission / fuel --------
-
     @GetMapping("/by-color/{color}")
     public ResponseEntity<?> byColor(@PathVariable String color) {
         return new ResponseEntity<>(carService.findByColor(color), HttpStatus.OK);
@@ -138,21 +126,15 @@ public class CarController {
         return new ResponseEntity<>(carService.findByFuelType(fuel), HttpStatus.OK);
     }
 
-    // -------- mileage --------
-
     @GetMapping("/by-mileage-lt/{km}")
     public ResponseEntity<?> byMileageLt(@PathVariable Integer km) {
         return new ResponseEntity<>(carService.findByMileageKmLessThan(km), HttpStatus.OK);
     }
 
-    // -------- description --------
-
     @GetMapping("/by-description")
     public ResponseEntity<?> byDescription(@RequestParam String text) {
         return new ResponseEntity<>(carService.findByDescriptionContaining(text), HttpStatus.OK);
     }
-
-    // -------- combined --------
 
     @GetMapping("/by-model-year")
     public ResponseEntity<?> byModelYear(@RequestParam String model,
