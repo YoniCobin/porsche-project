@@ -41,17 +41,7 @@ public class Car implements Serializable {
     @Length(max = 500)
     private String imageUrl;
 
-    public Car(String model, String trimLevel, Integer year, Double price, String color, Integer mileageKm, String imageUrl) {
-        this.model = model;
-        this.trimLevel = trimLevel;
-        this.year = year;
-        this.price = price;
-        this.color = color;
-        this.mileageKm = mileageKm;
-        this.imageUrl = imageUrl;
-    }
 
-    public Car() {}
 
     public Long getId() {
         return id;
@@ -114,6 +104,18 @@ public class Car implements Serializable {
     }
 
     public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public Car() {}
+
+    public Car(String model, String trimLevel, Integer year, Double price, String color, Integer mileageKm, String imageUrl) {
+        this.model = model;
+        this.trimLevel = trimLevel;
+        this.year = year;
+        this.price = price;
+        this.color = color;
+        this.mileageKm = mileageKm;
         this.imageUrl = imageUrl;
     }
 }
