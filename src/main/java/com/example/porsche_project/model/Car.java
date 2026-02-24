@@ -106,7 +106,7 @@ public class Car implements Serializable {
     }
 
     public void setMileageKm(Integer mileageKm) {
-        this.mileageKm = mileageKm;
+        this.mileageKm = mileageKm
     }
 
     public String getImageUrl() {
