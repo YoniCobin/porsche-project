@@ -24,7 +24,7 @@ public class CarService {
     }
 
     public Car save(Car car) {
-        return repository.save(car);
+        return repository.save(car)
     }
 
     public void delete(Car car) {
