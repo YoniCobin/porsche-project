@@ -70,31 +70,6 @@ public class CarController {
         return new ResponseEntity<>(carService.findByYearBetween(min, max), HttpStatus.OK);
     }
 
-    @GetMapping("/by-engine/{cc}")
-    public ResponseEntity<?> byEngine(@PathVariable Integer cc) {
-        return new ResponseEntity<>(carService.findByEngineCc(cc), HttpStatus.OK);
-    }
-
-    @GetMapping("/by-engine-gt/{cc}")
-    public ResponseEntity<?> byEngineGt(@PathVariable Integer cc) {
-        return new ResponseEntity<>(carService.findByEngineCcGreaterThan(cc), HttpStatus.OK);
-    }
-
-    @GetMapping("/by-hp/{hp}")
-    public ResponseEntity<?> byHp(@PathVariable Integer hp) {
-        return new ResponseEntity<>(carService.findByHorsePower(hp), HttpStatus.OK);
-    }
-
-    @GetMapping("/by-hp-gt/{hp}")
-    public ResponseEntity<?> byHpGt(@PathVariable Integer hp) {
-        return new ResponseEntity<>(carService.findByHorsePowerGreaterThan(hp), HttpStatus.OK);
-    }
-
-    @GetMapping("/by-seats/{seats}")
-    public ResponseEntity<?> bySeats(@PathVariable Integer seats) {
-        return new ResponseEntity<>(carService.findBySeats(seats), HttpStatus.OK);
-    }
-
     @GetMapping("/by-price/{price}")
     public ResponseEntity<?> byPrice(@PathVariable Double price) {
         return new ResponseEntity<>(carService.findByPrice(price), HttpStatus.OK);
@@ -116,24 +91,9 @@ public class CarController {
         return new ResponseEntity<>(carService.findByColor(color), HttpStatus.OK);
     }
 
-    @GetMapping("/by-transmission/{t}")
-    public ResponseEntity<?> byTransmission(@PathVariable String t) {
-        return new ResponseEntity<>(carService.findByTransmission(t), HttpStatus.OK);
-    }
-
-    @GetMapping("/by-fuel/{fuel}")
-    public ResponseEntity<?> byFuel(@PathVariable String fuel) {
-        return new ResponseEntity<>(carService.findByFuelType(fuel), HttpStatus.OK);
-    }
-
     @GetMapping("/by-mileage-lt/{km}")
     public ResponseEntity<?> byMileageLt(@PathVariable Integer km) {
         return new ResponseEntity<>(carService.findByMileageKmLessThan(km), HttpStatus.OK);
-    }
-
-    @GetMapping("/by-description")
-    public ResponseEntity<?> byDescription(@RequestParam String text) {
-        return new ResponseEntity<>(carService.findByDescriptionContaining(text), HttpStatus.OK);
     }
 
     @GetMapping("/by-model-year")
@@ -146,14 +106,5 @@ public class CarController {
     public ResponseEntity<?> byModelTrim(@RequestParam String model,
                                          @RequestParam String trim) {
         return new ResponseEntity<>(carService.findByModelAndTrimLevel(model, trim), HttpStatus.OK);
-    }
-
-    @GetMapping("/by-price-hp")
-    public ResponseEntity<?> byPriceHp(@RequestParam Double price,
-                                       @RequestParam Integer hp) {
-        return new ResponseEntity<>(
-                carService.findByPriceLessThanAndHorsePowerGreaterThan(price, hp),
-                HttpStatus.OK
-        );
     }
 }
