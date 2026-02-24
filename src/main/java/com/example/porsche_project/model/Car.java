@@ -18,7 +18,7 @@ public class Car implements Serializable {
     private Long id;
 
     @NotBlank
-    @Length(min = 2, max = 40)
+    @Length(min = 2, max = 40
     private String model;
 
     @NotBlank
