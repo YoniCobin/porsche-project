@@ -46,7 +46,7 @@ public class CarController {
     public ResponseEntity<?> deleteCar(@PathVariable Long id) {
         Optional<Car> dbCar = carService.findById(id);
         carService.delete(dbCar.get());
-        return new ResponseEntity<>("DELETED", HttpStatus.OK)
+        return new ResponseEntity<>("DELETED", HttpStatus.OK);
     }
     @GetMapping
     public ResponseEntity<?> getAllCarsRoot() {
