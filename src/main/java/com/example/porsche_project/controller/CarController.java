@@ -48,6 +48,10 @@ public class CarController {
         carService.delete(dbCar.get());
         return new ResponseEntity<>("DELETED", HttpStatus.OK);
     }
+    @GetMapping
+    public ResponseEntity<?> getAllCarsRoot() {
+        return new ResponseEntity<>(carService.all(), HttpStatus.OK);
+    }
 
     @GetMapping("/by-model/{model}")
     public ResponseEntity<?> byModel(@PathVariable String model) {
